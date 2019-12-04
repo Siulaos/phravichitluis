@@ -5,5 +5,5 @@ pasos a instalar:
 ## para bajar las dependencias que se necesiten.
 2) npm start
 ## para iniciar la aplicación.
-3 )json-server --watch account.json
+3)json-server --watch account.json
 ## Para iniciar el servidor API JSON FAKE y tome como archivo " account.json "

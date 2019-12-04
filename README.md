@@ -9,4 +9,5 @@ pasos a instalar:
 3) npm start
 ## luego iniciar una nueva terminal y correr lo siguiente para iniciar el server.
 4) json-server --watch account.json
-## Para iniciar el servidor API JSON FAKE y tome como archivo " account.json "
+
+## Es necesario iniciar el servidor API JSON FAKE y que tome como archivo " account.json " para poder almacenar datos localmente y escribir sobre el.

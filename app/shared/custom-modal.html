@@ -1,0 +1,74 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="accountModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="accountModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="accountModalLabel">
+          {{ac.modalLabel}}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <input
+            ng-if="ac.modalType !== 'transaction'"
+            type="text"
+            placeholder="Account Name"
+            ng-model="ac.account.name"
+            class="form-control"
+          />
+          <input
+            ng-if="ac.modalType === 'transaction'"
+            type="number"
+            placeholder="$"
+            ng-model="ac.monney"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          ng-if="ac.modalType === 'transaction'"
+          type="button"
+          class="btn btn-primary btn-block"
+          ng-click="ac.saveTransactionAccount(ac.modalEventType)"
+          data-dismiss="modal"
+        >
+          Complete Transaction
+        </button>
+        <button
+          ng-if="ac.modalType === 'edit'"
+          type="button"
+          class="btn btn-primary btn-block"
+          ng-click="ac.editAccount()"
+          data-dismiss="modal"
+        >
+          Modify Account
+        </button>
+        <button
+          ng-if="ac.modalType === 'add'"
+          type="button"
+          class="btn btn-primary btn-block"
+          ng-click="ac.addAccount()"
+          data-dismiss="modal"
+        >
+          Save Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

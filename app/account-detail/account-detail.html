@@ -1,0 +1,68 @@
+<div class="container" ng-controller="AccountDetailController as ac">
+  <img src="assets/img/headerbancofrances.png" width="100%" height="20%" />
+  <button type="button" class="btn btn-info btn-lg btn-block" ng-click="ac.checkBalance()">
+	  <img src="assets/img/check.png" width="10%" height="10%" alt="check"> </img>
+  </button>
+  <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="ac.modalDeposit()">
+		<img src="assets/img/deposit.png" width="10%" height="10%" alt="check"> </img>
+  </button>
+  <button type="button" class="btn btn-success btn-lg btn-block" ng-click="ac.modalExtraction()">
+		<img src="assets/img/extraction.png" width="10%" height="10%" alt="check"> </img>
+  </button>
+  <button type="button" class="btn btn-light btn-lg btn-block" ng-click="ac.modalEditAccount()">
+		<img src="assets/img/edit.png" width="10%" height="10%" alt="check"> </img>
+  </button>
+  <button type="button" class="btn btn-light btn-lg btn-block" ng-click="ac.deleteAccount()">
+		<img src="assets/img/delete.png" width="10%" height="10%" alt="check"> </img>
+  </button>
+  <p><a href="/">Volver</a></p>
+
+  <!--Modal-->
+  <custom-modal visible="ac.isOpen"></custom-modal>
+    <!--Toast Alert-->
+	<div
+    class="toast"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    data-delay="20000"
+    style="position: fixed; top: 1rem; right: 1rem;"
+  >
+    <div class="toast-header">
+      <img
+        src="assets/icons/bell.svg"
+        width="22"
+        height="22"
+        class="rounded mr-2"
+        alt=""
+      />
+      <strong class="mr-auto">{{ac.account.name}}</strong>
+      <small>Pesos:</small>
+      <button
+        type="button"
+        class="ml-2 mb-1 close"
+        data-dismiss="toast"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      <h2>Su saldo es: ${{ac.account.monney}}</h2>
+      <br />
+      <ul>
+        <li
+          ng-repeat="history in ac.account.history | orderBy: 'history': true | filter: query | limitTo: 10"
+        >
+          <h6>
+            <span
+              ng-class="{colorgreen: history.movement == 'Depósito' , colorred: history.movement == 'Extracción'}"
+              >{{history.movement}}</span
+            >
+          </h6>
+          <h6>${{history.monney}}</h6>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

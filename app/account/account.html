@@ -1,0 +1,54 @@
+<div class="container" ng-controller="AccountController as ac">
+  <img src="assets/img/headerbancofrances.png" width="100%" height="20%" />
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"
+        ><img
+          src="assets/icons/search.svg"
+          width="22"
+          height="22"
+          title="Bootstrap"
+      /></span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Account"
+      aria-label="Account"
+      aria-describedby="basic-addon1"
+      ng-model="searchName"
+    />
+    <hr />
+  </div>
+  <h1 style="color: floralwhite;">{{ac.listAccount}}</h1>
+  <div class="list-group">
+    <div
+      ng-repeat="account in ac.accounts | filter : searchName | orderBy : 'monney'"
+    >
+      <input
+        id="{{$index}}"
+        type="radio"
+        class="list-group-item"
+        value="{{$index}}"
+        name="radioInputAccount"
+        ng-click="ac.selectAccount(account)"
+      />
+      <label class="list-group-item" for="{{$index}}"
+        ><h5 style="text-align: center;">
+          Client Name: {{account.name}}
+        </h5></label
+      >
+    </div>
+  </div>
+  <hr />
+  <button
+    type="button"
+    class="btn btn-primary float-right"
+    ng-click="ac.openAddAccountModal()"
+  >
+    Add Account
+  </button>
+
+  <!-- Modal -->
+  <custom-modal visible="ac.isOpen"></custom-modal>
+</div>

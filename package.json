@@ -12,7 +12,7 @@
     "angular-route": "^1.7.5",
     "bootstrap": "^4.4.1",
     "html5-boilerplate": "0.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "json-server": "^0.15.1",
     "tether": "^1.4.7"
   },
